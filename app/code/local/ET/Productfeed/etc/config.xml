@@ -1,0 +1,30 @@
+<config>
+	<modules>
+		<ET_Productfeed>
+			<version>0.1.0</version>
+		</ET_Productfeed>
+    </modules>
+    <global>
+        <blocks>
+            <et_productfeed>
+                <class>ET_Productfeed_Block</class>
+            </et_productfeed>
+        </blocks>
+        <helpers>
+            <et_productfeed>
+                <class>ET_Productfeed_Helper</class>
+            </et_productfeed>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <ET_Productfeed before="Mage_Adminhtml">ET_Productfeed_Adminhtml</ET_Productfeed>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

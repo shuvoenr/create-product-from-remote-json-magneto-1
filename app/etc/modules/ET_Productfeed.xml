@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <ET_Productfeed>
+            <active>true</active>
+            <codePool>local</codePool>
+        </ET_Productfeed>
+    </modules>
+</config>

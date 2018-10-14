@@ -1,0 +1,54 @@
+
+<?php
+    //-- getting product feed URL
+    $productFeedURL = Mage::helper("adminhtml")->getUrl("adminhtml/loadproduct/loadFeed");
+?>
+<!--  Product Feed URL Loader Button -->
+<tr>
+    <td class="label">Load Product Feed</td>
+    <td class="value">
+        <button class="scalable delete" type="button">
+            <span onclick="loadProductFeed('<?php echo $productFeedURL;?>'); return false;" >
+                <?php echo $this->getTitle() ?>
+            </span>
+        </button>
+    </td>
+</tr>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var loadProductFeed = function (url) {
+        var loader_id = 'loading-mask';
+        if (confirm('<?php echo $this->__('Are you sure?'); ?>')) {
+            new Ajax.Request(url + (url.match(new RegExp('\\?')) ? '&ajax=true' : '?ajax=true' ), {
+                parameters: this.reloadParams || {},
+                onCreate: function (obj) {
+                    Element.show(loader_id);
+                },
+                onFailure: function () {
+                    alert('<?php echo $this->__('Sorry Product Can be updated'); ?>');
+                },
+                onComplete: function (transport) {
+                    Element.hide(loader_id);
+                },
+                onSuccess: function (transport) {
+                    var jsonObject = JSON.parse(transport.responseText);
+                    //console.log(jsonObject);
+                    if(jsonObject.errorMessage == false) {
+                        var responseString = "Total Product Upload: " +jsonObject.totalUploaded+"\n" +"Total Product Update: " +jsonObject.totalUpdated;
+                        alert(responseString);
+                    }else {
+                        alert("There is an Error : "+jsonObject.errorMessage);
+                    }
+                }
+            });
+        }
+    }
+    //]]>
+</script>
+
+<style>
+    #et_productfeed_settings_product_feed_loader .entry-edit-head.collapseable {
+        display: none;
+    }
+</style>

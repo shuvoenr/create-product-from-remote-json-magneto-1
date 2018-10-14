@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<tabs>
+		<et_productfeed translate="label" module="et_productfeed">
+			<label>Product Feed</label>
+			<sort_order>20</sort_order>
+		</et_productfeed>
+	</tabs>
+	<sections>
+		<et_productfeed_settings module="et_productfeed">
+			<label>Product Feed</label>
+			<tab>et_productfeed</tab>
+			<sort_order>100</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label" module="et_productfeed">
+					<label>Product Feed Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable>
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable>
+						<product_feed_url translate="label">
+							<label>Product Feed URL</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_feed_url>
+					</fields>
+				</general>
+				<product_feed_loader translate="label" module="et_productfeed">
+					<label>Product Feed Loader</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<product_feed_load translate="label">
+							<label>Load Product Feed</label>
+							<frontend_type>text</frontend_type>
+							<frontend_model>et_productfeed/adminhtml_system_config_form_productfeed_fieldset</frontend_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<sort_order>10</sort_order>
+						</product_feed_load>
+					</fields>
+				</product_feed_loader>
+			</groups>
+		</et_productfeed_settings>
+	</sections>
+</config>
